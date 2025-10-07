@@ -1,0 +1,79 @@
+*,
+html,
+body {
+      margin: 0;
+      padding: 0;
+}
+
+body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: aliceblue;
+      color: black;
+}
+
+.gelap {
+      background-color: rgb(13, 3, 51);
+      color: aliceblue;
+}
+
+.nyaman {
+      background-color: rgb(247, 214, 172);
+      color: darkgoldenrod;
+
+}
+
+.info {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 10px;
+      animation: jedagJedug .5s infinite;
+}
+
+@keyframes jedagJedug {
+      0% {
+            font-size: 10px;
+      }
+
+      50% {
+            font-size: 15 px;
+      }
+
+      100% {
+            font-size: 10;
+      }
+}
+
+.container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 100%;
+      height: 100vh;
+}
+
+.nav-contener {
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      bottom: 0;
+      background-color: brown;
+      padding: 5px;
+      width: 100%;
+
+}
+
+nav a {
+      text-decoration: none;
+      padding: 15px;
+      color: aliceblue;
+      font-weight: 800;
+}
+
+nav a:hover {
+      background-color: rgb(134, 34, 34);
+      cursor: pointer;
+      transition: .5s ease-in-out;
+}

@@ -1,0 +1,16 @@
+{
+  "name": "sesi-7",
+  "version": "1.0.0",
+  "description": "cuy university",
+  "license": "ISC",
+  "author": "kevin",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "mulai": "nodemon index.js"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.10",
+    "rupiah-format": "^1.0.0"
+  }
+}

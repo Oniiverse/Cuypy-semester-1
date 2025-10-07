@@ -1,0 +1,106 @@
+<html>
+
+<head>
+      <title>google</title>
+      <style>
+            #root {
+                  background-color: red;
+                  color: aliceblue;
+                  font-size: 2em;
+                  text-align: center;
+                  height: 100px;
+            }
+
+            #isiconten {
+                  background-color: red;
+                  color: aliceblue;
+                  font-size: 2em;
+                  text-align: center;
+                  height: 200px;
+            }
+
+            .body {
+                  background-color: blanchedalmond;
+            }
+      </style>
+</head>
+
+<body class="body">
+      <div id="root">
+            <input type="text" placeholder="username" id="usernameInput" />
+            <input type="password" placeholder="password" id="passwordInput" />
+            <button onclick="onlogin()" id="loginButton">LOGIN</button>
+            <button onclick="onregister()" id="registerButton">REGISTRASI</button>
+            <button onclick="onlogout()" id="logoutButton">LOGOUT</button>
+      </div>
+      <div>
+            <h1 id="isiconten"></h1>
+      </div>
+</body>
+<script type="application/javascript">
+      let root = document.getElementById('root');
+      let isiconten = document.getElementById('isiconten');
+      let usernameInput = document.getElementById('usernameInput')
+      let passwordInput = document.getElementById('passwordInput')
+      let loginButton = document.getElementById('loginButton')
+      let registerButton = document.getElementById('registerButton')
+      let logoutButton = document.getElementById('logoutButton')
+      let storageusr = localStorage.getItem(usernameInput.value)
+
+      registerButton.style.display = "block"
+      logoutButton.style.display = "none"
+
+      function onregister() {
+            if (!usernameInput.value || !passwordInput.value) {
+                  alert('harap isi kolom dengan benar')
+                  location.reload()
+                  return
+            } if (localStorage.getItem(usernameInput.value || passwordInput.value)) {
+                  alert('nama sudah ada')
+                  location.reload()
+                  return
+            } else {
+                  alert('registrasi berhasil')
+                  localStorage.setItem(usernameInput.value, passwordInput.value);
+                  location.reload()
+            }
+      }
+
+      function onlogin() {
+            usernameInput.style.display = "none";
+            passwordInput.style.display = "none";
+            loginButton.style.display = "none";
+            registerButton.style.display = "none";
+            logoutButton.style.display = "block";
+            location.reload()
+
+
+            if (storageusr == passwordInput.value) {
+                  logoutButton.style.display = "block"
+                  sessionStorage.setItem(usernameInput.value, passwordInput.value)
+                  isiconten.textContent = usernameInput.value
+                  location.reload()
+
+
+            } else {
+                  alert('akun tidak terdaftar/salah')
+                  location.reload()
+            }
+      }
+
+      if (sessionStorage.getItem(usernameInput.value)) {
+            isiconten.textContent = usernameInput.value
+            usernameInput.style.display = "none";
+            passwordInput.style.display = "none";
+            loginButton.style.display = "none";
+            registerButton.style.display = "none";
+            logoutButton.style.display = "block";
+      }
+
+      function onlogout() {
+            sessionStorage.clear()
+            location.reload()
+      }
+</script>
+
+</html>
